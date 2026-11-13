@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 3 of the three-week beginner-friendly Go course.">
+<title>Class 3: Structs, methods, interfaces and error handling — Go Course</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{ink:'#101828',mint:'#B8F3D5'}}}}</script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+<header class="border-b border-slate-200 bg-white/90 backdrop-blur"><nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+<a href="index.html" class="flex items-center gap-3 font-bold tracking-tight text-ink"><span class="grid h-9 w-9 place-items-center rounded-xl bg-ink text-sm text-mint">Go</span><span>Backend Launchpad <span class="font-normal text-slate-400">/ Go</span></span></a>
+<div class="flex items-center gap-4 text-sm font-medium"><a href="index.html" class="hidden text-slate-500 hover:text-ink sm:block">Introduction</a><a href="go-course-outline.html" class="text-slate-500 hover:text-ink">Course outline</a></div></nav></header>
+<main>
+<section class="bg-ink text-white"><div class="mx-auto max-w-7xl px-5 py-14 md:py-16">
+<div class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[.16em] text-mint"><span>Week 1</span><span class="text-slate-500">/</span><span>Class 3 of 9</span><span class="rounded-full bg-white/10 px-3 py-1 text-slate-200">Go foundations</span></div>
+<h1 class="mt-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">Structs, methods, interfaces and error handling</h1>
+<p class="mt-5 max-w-3xl text-lg leading-8 text-slate-300">Model real data, attach behavior to types, understand Go interfaces and practice the explicit error-handling style used in real projects.</p>
+<div class="mt-8 flex flex-wrap gap-3 text-sm"><span class="rounded-xl bg-white/10 px-4 py-2">⏱ 2 hours</span><span class="rounded-xl bg-white/10 px-4 py-2">Explain · Demonstrate · Practice</span><span class="rounded-xl bg-white/10 px-4 py-2">Challenge included</span></div>
+</div></section>
+<section class="mx-auto grid max-w-7xl gap-10 px-5 py-12 lg:grid-cols-[1fr_300px]">
+<div class="min-w-0">
+<div><p class="text-xs font-bold uppercase tracking-[.18em] text-emerald-700">Learning objectives</p><h2 class="mt-2 text-2xl font-bold text-ink">By the end of this class, you should be able to</h2>
+<ul class="mt-5 grid gap-3 text-sm leading-6 text-slate-600 sm:grid-cols-2"><li class="flex gap-3"><span class="mt-1 text-emerald-600">✓</span><span>Define structs and create values using named fields.</span></li><li class="flex gap-3"><span class="mt-1 text-emerald-600">✓</span><span>Add methods to a type and understand pointer receivers at a beginner level.</span></li><li class="flex gap-3"><span class="mt-1 text-emerald-600">✓</span><span>Describe how Go interfaces are satisfied implicitly.</span></li><li class="flex gap-3"><span class="mt-1 text-emerald-600">✓</span><span>Return, inspect and handle errors using the standard Go pattern.</span></li><li class="flex gap-3"><span class="mt-1 text-emerald-600">✓</span><span>Organize code into packages and understand module imports.</span></li></ul></div>
+<div class="mt-12"><p class="text-xs font-bold uppercase tracking-[.18em] text-emerald-700">Lesson content</p><h2 class="mt-2 text-2xl font-bold text-ink">Concepts we will cover</h2><div class="mt-5 grid gap-4 sm:grid-cols-2"><div class="rounded-2xl border border-slate-200 bg-white p-5"><h3 class="font-bold text-ink">Structs and composition</h3><p class="mt-2 text-sm leading-6 text-slate-600">Define structs, fields, struct literals, nested structs and composition instead of class inheritance.</p></div><div class="rounded-2xl border border-slate-200 bg-white p-5"><h3 class="font-bold text-ink">Methods and pointers</h3><p class="mt-2 text-sm leading-6 text-slate-600">Value versus pointer receivers; when a method should modify a value; basic pointer syntax and nil awareness.</p></div><div class="rounded-2xl border border-slate-200 bg-white p-5"><h3 class="font-bold text-ink">Interfaces</h3><p class="mt-2 text-sm leading-6 text-slate-600">Define small behavior contracts; implicit satisfaction; use interfaces to make code easier to test and change.</p></div><div class="rounded-2xl border border-slate-200 bg-white p-5"><h3 class="font-bold text-ink">Errors</h3><p class="mt-2 text-sm leading-6 text-slate-600">The error type; errors.New and fmt.Errorf; checking if err != nil; returning errors to callers.</p></div><div class="rounded-2xl border border-slate-200 bg-white p-5"><h3 class="font-bold text-ink">Packages and modules</h3><p class="mt-2 text-sm leading-6 text-slate-600">Package naming, exported identifiers, imports, go mod tidy and standard library discovery.</p></div></div></div>
+<div class="mt-12"><p class="text-xs font-bold uppercase tracking-[.18em] text-emerald-700">120-minute lesson plan</p><h2 class="mt-2 text-2xl font-bold text-ink">How the two hours are used</h2><div class="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-white"><div class="overflow-x-auto"><table class="w-full min-w-[620px] text-left"><thead class="bg-slate-100 text-xs uppercase tracking-wider text-slate-500"><tr><th class="px-4 py-3">Time</th><th class="px-4 py-3">Activity</th><th class="px-4 py-3">What happens</th></tr></thead><tbody><tr class="border-t border-slate-100"><td class="whitespace-nowrap px-4 py-3 font-mono text-xs font-semibold text-emerald-800">00–10</td><td class="px-4 py-3 font-semibold text-ink">Review collections and functions</td><td class="px-4 py-3 text-sm leading-6 text-slate-600">Discuss the expense summary homework and refactor one function.</td></tr><tr class="border-t border-slate-100"><td class="whitespace-nowrap px-4 py-3 font-mono text-xs font-semibold text-emerald-800">10–30</td><td class="px-4 py-3 font-semibold text-ink">Structs</td><td class="px-4 py-3 text-sm leading-6 text-slate-600">Model a User, Task or Product using fields and struct literals.</td></tr><tr class="border-t border-slate-100"><td class="whitespace-nowrap px-4 py-3 font-mono text-xs font-semibold text-emerald-800">30–45</td><td class="px-4 py-3 font-semibold text-ink">Methods and pointers</td><td class="px-4 py-3 text-sm leading-6 text-slate-600">Add methods; demonstrate a pointer receiver that updates a struct.</td></tr><tr class="border-t border-slate-100"><td class="whitespace-nowrap px-4 py-3 font-mono text-xs font-semibold text-emerald-800">45–65</td><td class="px-4 py-3 font-semibold text-ink">Interfaces</td><td class="px-4 py-3 text-sm leading-6 text-slate-600">Define a small interface and pass a concrete type where the interface is expected.</td></tr><tr class="border-t border-slate-100"><td class="whitespace-nowrap px-4 py-3 font-mono text-xs font-semibold text-emerald-800">65–75</td><td class="px-4 py-3 font-semibold text-ink">Break</td><td class="px-4 py-3 text-sm leading-6 text-slate-600">Short reset.</td></tr><tr class="border-t border-slate-100"><td class="whitespace-nowrap px-4 py-3 font-mono text-xs font-semibold text-emerald-800">75–95</td><td class="px-4 py-3 font-semibold text-ink">Errors</td><td class="px-4 py-3 text-sm leading-6 text-slate-600">Return errors from functions; check them at the call site; avoid silently ignoring failures.</td></tr><tr class="border-t border-slate-100"><td class="whitespace-nowrap px-4 py-3 font-mono text-xs font-semibold text-emerald-800">95–110</td><td class="px-4 py-3 font-semibold text-ink">Packages and modules</td><td class="px-4 py-3 text-sm leading-6 text-slate-600">Move related code into a package and import it from main.</td></tr><tr class="border-t border-slate-100"><td class="whitespace-nowrap px-4 py-3 font-mono text-xs font-semibold text-emerald-800">110–120</td><td class="px-4 py-3 font-semibold text-ink">Guided review</td><td class="px-4 py-3 text-sm leading-6 text-slate-600">Walk through a small task manager design and identify its types, methods and possible errors.</td></tr></tbody></table></div></div><p class="mt-3 text-xs text-slate-500">The schedule totals 120 minutes, including a short break and a review/checkpoint.</p></div>
+<div class="mt-12" id="code-examples"><p class="text-xs font-bold uppercase tracking-[.18em] text-emerald-700">Code walkthroughs</p><h2 class="mt-2 text-2xl font-bold text-ink">Learn by reading and running Go code</h2><p class="mt-3 max-w-3xl text-sm leading-6 text-slate-600">Type these examples into your own project rather than only copying them. Run each one, change a value, predict the output, and run it again. Some examples are focused fragments; the notes explain any imports or surrounding code they need.</p><div class="mt-5 overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-sm"><div class="flex items-center justify-between gap-3 border-b border-slate-700 px-5 py-3"><h3 class="font-semibold text-white">Structs and methods</h3><span class="text-xs font-medium text-emerald-300">Example 1</span></div><pre class="overflow-x-auto p-5 text-sm leading-6 text-slate-100"><code>package main
+
+import &quot;fmt&quot;
+
+type User struct {
+	Name  string
+	Email string
+}
+
+func (u User) DisplayName() string {
+	return u.Name + &quot; &lt;&quot; + u.Email + &quot;&gt;&quot;
+}
+
+func main() {
+	u := User{Name: &quot;Ada&quot;, Email: &quot;ada@example.com&quot;}
+	fmt.Println(u.DisplayName())
+}</code></pre><div class="border-t border-slate-700 bg-slate-900 px-5 py-4 text-sm leading-6 text-slate-300"><span class="font-semibold text-emerald-300">Teaching note: </span>A struct groups related fields. DisplayName is a method with a value receiver, so it can read the User without changing it.</div></div><div class="mt-5 overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-sm"><div class="flex items-center justify-between gap-3 border-b border-slate-700 px-5 py-3"><h3 class="font-semibold text-white">Interfaces and explicit errors</h3><span class="text-xs font-medium text-emerald-300">Example 2</span></div><pre class="overflow-x-auto p-5 text-sm leading-6 text-slate-100"><code>package main
+
+import (
+	&quot;errors&quot;
+	&quot;fmt&quot;
+)
+
+type Greeter interface {
+	Greet() string
+}
+
+type Member struct{ Name string }
+func (m Member) Greet() string { return &quot;Hello, &quot; + m.Name }
+
+func findName(name string) (string, error) {
+	if name == &quot;&quot; {
+		return &quot;&quot;, errors.New(&quot;name is required&quot;)
+	}
+	return name, nil
+}
+
+func main() {
+	var g Greeter = Member{Name: &quot;Ada&quot;}
+	fmt.Println(g.Greet())
+	name, err := findName(&quot;&quot;)
+	if err != nil { fmt.Println(&quot;Error:&quot;, err); return }
+	fmt.Println(name)
+}</code></pre><div class="border-t border-slate-700 bg-slate-900 px-5 py-4 text-sm leading-6 text-slate-300"><span class="font-semibold text-emerald-300">Teaching note: </span>A type satisfies an interface by implementing its methods—there is no implements keyword. Go commonly returns errors as values; callers should check them.</div></div><div class="mt-5 rounded-2xl border border-sky-200 bg-sky-50 p-5"><h3 class="font-bold text-ink">Practice while you learn</h3><p class="mt-2 text-sm leading-6 text-slate-700">After each example, make one deliberate change and explain what changed. If the compiler reports an error, read the file name and line number, fix one issue at a time, then run the example again.</p></div></div><div class="mt-12"><p class="text-xs font-bold uppercase tracking-[.18em] text-emerald-700">Guided practice</p><h2 class="mt-2 text-2xl font-bold text-ink">Let's build something together</h2><div class="mt-5 rounded-2xl border border-slate-200 bg-white p-6"><p class="leading-7 text-slate-600">Create a Task struct with ID, Title and Done fields. Add a MarkDone method and a function that rejects an empty title by returning an error.</p></div></div>
+<section class="mt-12 rounded-3xl border border-amber-200 bg-amber-50 p-6 md:p-8"><div class="flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-xl bg-amber-200 text-xl">🏁</span><div><p class="text-xs font-bold uppercase tracking-[.16em] text-amber-800">End-of-class challenge</p><h2 class="mt-1 text-2xl font-bold text-ink">Your turn to prove your understanding</h2></div></div>
+<p class="mt-5 leading-7 text-slate-700">Build a **package-based task manager**. Define a Task struct, add methods to complete and describe a task, and create functions to add and list tasks. Reject blank titles with a returned error. Put task-related code in its own package and call it from package main.</p><h3 class="mt-6 font-bold text-ink">Submission checklist</h3><ul class="mt-3 space-y-3 text-sm leading-6 text-slate-700"><li class="flex gap-3"><span class="mt-1 text-emerald-600">□</span><span>Uses a struct with at least three fields and at least one method.</span></li><li class="flex gap-3"><span class="mt-1 text-emerald-600">□</span><span>Demonstrates a pointer receiver or clearly explains why one is not needed.</span></li><li class="flex gap-3"><span class="mt-1 text-emerald-600">□</span><span>Returns and checks an error for invalid task input.</span></li><li class="flex gap-3"><span class="mt-1 text-emerald-600">□</span><span>Separates main program code from task domain code in a Go module.</span></li></ul>
+<div class="mt-6 rounded-2xl bg-white/80 p-5"><p class="text-xs font-bold uppercase tracking-wider text-amber-800">Optional stretch goal</p><p class="mt-2 text-sm leading-6 text-slate-700">Define a small interface for a task store and create an in-memory implementation. This prepares the learner for database-backed storage.</p></div>
+</section>
+<div class="mt-8 rounded-2xl border border-slate-200 bg-white p-5"><h3 class="font-bold text-ink">Before the next class</h3><p class="mt-2 text-sm leading-6 text-slate-600">Review the Go Tour sections on methods, pointers, interfaces and errors. Bring one question about an unfamiliar compiler message.</p></div>
+</div>
+<aside class="space-y-5">
+<div class="sticky top-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><p class="text-xs font-bold uppercase tracking-wider text-slate-400">Course progress</p><p class="mt-2 text-2xl font-bold text-ink">Class 3 <span class="text-base font-medium text-slate-400">/ 9</span></p><div class="mt-3 h-2 overflow-hidden rounded-full bg-slate-100"><div class="h-full rounded-full bg-emerald-500" style="width:33.33%"></div></div><p class="mt-3 text-sm text-slate-500">Week 1 · 3 classes per milestone</p><a href="go-course-outline.html" class="mt-5 block rounded-xl bg-slate-100 px-4 py-3 text-center text-sm font-semibold text-ink hover:bg-slate-200">View full course outline</a></div>
+<div class="rounded-2xl bg-emerald-50 p-5"><h3 class="font-bold text-ink">Learning tip</h3><p class="mt-2 text-sm leading-6 text-slate-600">Type every example yourself. When something fails, read the compiler or runtime error, form a hypothesis and make one change at a time.</p></div>
+</aside>
+</section>
+</main>
+<footer class="border-t border-slate-200 bg-white"><div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-6 text-sm text-slate-500"><a class="font-semibold text-ink hover:text-emerald-800" href="class-02.html">← Class 2</a><span>Go course · Class 3 of 9</span><a class="font-semibold text-ink hover:text-emerald-800" href="class-04.html">Class 4 →</a></div></footer>
+</body></html>
